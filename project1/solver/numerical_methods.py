@@ -1,8 +1,12 @@
 # solver/numerical_methods.py
-
 def bisection_method(f, a, b, tol, max_iter):
+    # Check if the function has opposite signs at a and b
     if f(a) * f(b) >= 0:
-        raise ValueError("The function must have different signs at endpoints a and b.")
+        # Return error message instead of raising an exception
+        c = "Error: The function must have different signs at endpoints a and b."
+        iter_count = 0
+        final_error = None
+        return c, iter_count, final_error
 
     iter_count = 0
     c = a
@@ -18,6 +22,7 @@ def bisection_method(f, a, b, tol, max_iter):
     
     final_error = abs(b - a) / 2
     return c, iter_count, final_error
+
 
 # solver/numerical_methods.py
 
